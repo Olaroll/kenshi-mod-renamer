@@ -7,11 +7,11 @@ It works by just renaming the outer dirs to be the same as the `.mod` file insid
 
 ![](demo.png)
 
-# Usage
+## Usage
 
 Run the executable where the mod dirs you want to rename are located. Then just follow the prompts.
 
-# Compiling
+## Compiling
 
 Compiles like a regular Rust binary.
 
