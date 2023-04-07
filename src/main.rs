@@ -64,7 +64,7 @@ fn inner_main() -> Result<()> {
         })
         .filter(|entry| {
             // Skip ones with the correct name already
-            entry.from.file_stem().unwrap() != entry.to
+            entry.from.file_name().unwrap() != entry.to
         })
         .collect();
 
