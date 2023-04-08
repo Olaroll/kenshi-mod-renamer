@@ -89,18 +89,12 @@ fn inner_main() -> Result<()> {
 
     let mut success_count = 0;
     for entry in rename_list {
-        let from = entry.from;
-        let to = from.parent().unwrap().join(entry.to);
+        let from = &entry.from;
+        let to = from.parent().unwrap().join(&entry.to);
 
-        match fs::rename(&from, &to) {
+        match fs::rename(from, &to) {
             Ok(_) => success_count += 1,
-            Err(err) => {
-                eprintln!("Failed to rename {:?} -> {:?}: {:#}",
-                          from.file_name().unwrap(),
-                          to.file_name().unwrap(),
-                          err,
-                )
-            }
+            Err(err) => eprintln!("Failed to rename {}: {:#}", entry, err),
         }
     }
 
